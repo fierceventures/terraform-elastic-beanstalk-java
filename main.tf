@@ -1,10 +1,10 @@
 resource "aws_iam_instance_profile" "eb_profile" {
-  name = "${terraform.workspace}-${var.namespace}-server-profile"
+  name = "${terraform.workspace}-${var.name}"
   role = "${aws_iam_role.eb_role.name}"
 }
 
 resource "aws_iam_role" "eb_role" {
-  name = "${terraform.workspace}-${var.namespace}-server-role"
+  name = "${terraform.workspace}-${var.name}"
   assume_role_policy = <<EOF
 {
   "Version": "2008-10-17",
@@ -29,15 +29,6 @@ resource "aws_iam_role_policy_attachment" "eb_web_tier_policy" {
 resource "aws_security_group" "security-group" {
   vpc_id = "${var.vpc_id}"
 
-  ingress {
-    from_port = 22
-    protocol = "tcp"
-    to_port = 22
-    cidr_blocks = [
-      "0.0.0.0/0"
-    ]
-  }
-
   egress {
     from_port = 0
     protocol = "-1"
@@ -49,12 +40,12 @@ resource "aws_security_group" "security-group" {
 }
 
 resource "aws_elastic_beanstalk_application" "elastic-beanstalk" {
-  name = "${terraform.workspace}-${var.namespace}-${var.name}"
+  name = "${terraform.workspace}-${var.name}"
 }
 
 resource "aws_elastic_beanstalk_environment" "environment" {
   application = "${aws_elastic_beanstalk_application.elastic-beanstalk.name}"
-  name = "${terraform.workspace}-${var.namespace}-${var.name}"
+  name = "${terraform.workspace}-${var.name}"
   solution_stack_name = "64bit Amazon Linux 2017.09 v2.6.0 running Java 8"
 
   setting {
