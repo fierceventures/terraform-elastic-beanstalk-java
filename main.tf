@@ -1,10 +1,10 @@
 resource "aws_iam_instance_profile" "eb_profile" {
-  name = "${terraform.workspace}-${var.name}"
+  name = "${var.env}-${var.name}"
   role = "${aws_iam_role.eb_role.name}"
 }
 
 resource "aws_iam_role" "eb_role" {
-  name = "${terraform.workspace}-${var.name}"
+  name = "${var.env}-${var.name}"
   assume_role_policy = <<EOF
 {
   "Version": "2008-10-17",
@@ -40,12 +40,12 @@ resource "aws_security_group" "security-group" {
 }
 
 resource "aws_elastic_beanstalk_application" "elastic-beanstalk" {
-  name = "${terraform.workspace}-${var.name}"
+  name = "${var.env}-${var.name}"
 }
 
 resource "aws_elastic_beanstalk_environment" "environment" {
   application = "${aws_elastic_beanstalk_application.elastic-beanstalk.name}"
-  name = "${terraform.workspace}-${var.name}"
+  name = "${var.env}-${var.name}"
   solution_stack_name = "64bit Amazon Linux 2017.09 v2.6.0 running Java 8"
 
   setting {
