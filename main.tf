@@ -99,12 +99,12 @@ resource "aws_elastic_beanstalk_environment" "environment" {
   setting {
     name = "StreamLogs"
     namespace = "aws:elasticbeanstalk:cloudwatch:logs"
-    value = "true"
+    value = "${var.stream_logs}"
   }
 
   setting {
     name = "DeleteOnTerminate"
     namespace = "aws:elasticbeanstalk:cloudwatch:logs"
-    value = "true"
+    value = "${var.delete_logs_on_terminate}"
   }
 }

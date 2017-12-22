@@ -10,6 +10,8 @@ Module Input Variables
 - `instance_type` - The instance type
 - `vpc_id` - The id of the vpc
 - `subnet` - The public subnet id for the application 
+- `delete_logs_on_terminate` - (optional, default: true) Delete cloud watch logs on terminate.
+- `stream_logs` - (optional, default: true) Streams logs to cloud watch.
 
 Usage 
 -----
