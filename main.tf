@@ -95,4 +95,16 @@ resource "aws_elastic_beanstalk_environment" "environment" {
     name = "ServiceRole"
     value = "aws-elasticbeanstalk-service-role"
   }
+
+  setting {
+    name = "StreamLogs"
+    namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+    value = "true"
+  }
+
+  setting {
+    name = "DeleteOnTerminate"
+    namespace = "aws:elasticbeanstalk:cloudwatch:logs"
+    value = "true"
+  }
 }
