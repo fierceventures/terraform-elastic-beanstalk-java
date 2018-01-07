@@ -107,4 +107,10 @@ resource "aws_elastic_beanstalk_environment" "environment" {
     namespace = "aws:elasticbeanstalk:cloudwatch:logs"
     value = "${var.delete_logs_on_terminate}"
   }
+
+  setting {
+    name = "EC2KeyName"
+    namespace = "aws:autoscaling:launchconfiguration"
+    value = "${var.key_name}"
+  }
 }
