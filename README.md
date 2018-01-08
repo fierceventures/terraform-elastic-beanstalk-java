@@ -26,7 +26,7 @@ Outputs
 - `eb_profile_name` - The iam instance profile name 
 - `eb_role_name` - The role name 
 - `eb_role_id` - The role id 
-- `eb_name` - The name of the application
+- `eb_application_name` - The name of the application
 - `security_group_id` - The security group id
 
 Author
