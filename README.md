@@ -27,6 +27,7 @@ Outputs
 - `eb_role_name` - The role name 
 - `eb_role_id` - The role id 
 - `eb_name` - The name of the application
+- `security_group_id` - The security group id
 
 Author
 ------
