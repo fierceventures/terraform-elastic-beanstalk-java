@@ -14,3 +14,6 @@ output "eb_application_name" {
   value = "${aws_elastic_beanstalk_application.elastic-beanstalk.name}"
 }
 
+output "security_group_id" {
+  value = "${aws_security_group.security-group.id}"
+}
