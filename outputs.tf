@@ -9,3 +9,7 @@ output "eb_role_name" {
 output "eb_role_id" {
   value = "${aws_iam_role.eb_role.id}"
 }
+
+output "eb_application_name" {
+  value = "${aws_elastic_beanstalk_application.elastic-beanstalk.name}"
+}
