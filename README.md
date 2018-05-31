@@ -1,13 +1,18 @@
 # AWS elastic beanstalk application
 
-This module can be used to deploy an AWS elastic beanstalk application. The environment must be created separately
+This module can be used to deploy an AWS elastic beanstalk application and environment.
 
 Module Input Variables
 ----------------------
 
-- `name` - The name of the application and environment
-- `env` - The environment name
-- `vpc_id` - The id of the vpc
+- `name` - Unique name for application & environment
+- `env`
+- `vpc_id`
+- `cert_arn`
+- `public_subnet_id`
+- `instance_type`
+- `delete_logs_on_terminate`
+- `key_pair_name`
 
 Usage 
 -----
@@ -15,19 +20,19 @@ Usage
 ```hcl
 module "elastic-beanstalk-java" {
   source = "github.com/fierceventures/terraform-elastic-beanstalk-java"
-  name = "primary"
-  env = "test"
+  name = "${var.namespace}-server"
+  env = "${terraform.workspace}"
   vpc_id = "${module.vpc.id}"
+  cert_arn = "${module.backend_cert.arn}"
+  public_subnet_id = "${module.public_subnet.id}"
+  instance_type = "${var.server_instance_type}"
+  key_pair_name = "${aws_key_pair.key_pair.key_name}"
 }
 ```
 
 Outputs
 -------
-- `eb_profile_name` - The iam instance profile name 
-- `eb_role_name` - The role name 
-- `eb_role_id` - The role id 
-- `eb_application_name` - The name of the application
-- `security_group_id` - The security group id
+- `cname` - The cname/url 
 
 Author
 ------
