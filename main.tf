@@ -144,7 +144,7 @@ resource "aws_iam_instance_profile" "eb_profile" {
 }
 
 resource "aws_iam_role" "eb_role" {
-  name = "${var.env}-${var.name}-instance"
+  name = "${var.env}-${var.name}"
   assume_role_policy = <<EOF
 {
   "Version": "2008-10-17",
