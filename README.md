@@ -35,6 +35,7 @@ Outputs
 - `cname` - cname/url 
 - `eb_profile_name` - Instance profile name
 - `eb_role_id`
+- `eb_role_name`
 
 Author
 ------

@@ -9,3 +9,7 @@ output "eb_profile_name" {
 output "eb_role_id" {
   value = "${aws_iam_role.eb_role.id}"
 }
+
+output "eb_role_name" {
+  value = "${aws_iam_role.eb_role.name}"
+}
