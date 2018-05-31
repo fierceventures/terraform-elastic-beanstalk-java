@@ -32,7 +32,9 @@ module "elastic-beanstalk-java" {
 
 Outputs
 -------
-- `cname` - The cname/url 
+- `cname` - cname/url 
+- `eb_profile_name` - Instance profile name
+- `eb_role_id`
 
 Author
 ------
