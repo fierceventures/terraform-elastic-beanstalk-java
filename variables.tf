@@ -5,6 +5,6 @@ variable "cert_arn" {}
 variable "public_subnet_id" {}
 variable "instance_type" {}
 variable "delete_logs_on_terminate" {
-  default = false
+  default = "false"
 }
 variable "key_pair_name" {}
